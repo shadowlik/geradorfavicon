@@ -68,7 +68,7 @@ const submitFile = async (req: Request, res: Response) => {
 
         await favicons.createFavicons();
         await favicons.zipSourceFolder();
-        await favicons.removeSourceFolder();
+        // await favicons.removeSourceFolder();
 
         // TODO: Save to the database
 

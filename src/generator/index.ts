@@ -41,12 +41,15 @@ export = class Favicons {
     }
 
     async createFavicons(): Promise<any> {
-        const file: Jimp = await this.readOriginalImage();
         const promise = [];
 
-        this.sizes.forEach((size) => {
-            const faviconPath = path.join(this.sourceImageDir, `favicon-${size.sufix}.${this.extesion}`);
-            promise.push(file.resize(size.w, size.h).quality(100).write(faviconPath));
+        this.sizes.forEach(async (size) => {
+            promise.push(new Promise(async (resolve, reject) => {
+                const file: Jimp = await this.readOriginalImage();
+                const faviconPath = path.join(this.sourceImageDir, `favicon-${size.sufix}.${this.extesion}`);
+                await file.scaleToFit(size.w, size.h).quality(100).write(faviconPath);
+                resolve();
+            }));
         });
 
         return Promise.all(this.sizes);
