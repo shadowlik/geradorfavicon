@@ -43,8 +43,12 @@ const submitFile = async (req: Request, res: Response) => {
         }
 
         // Check if the image type allowed
-        if (!/png|jpg|ico|gif|jpeg|bmp/gm.exec(image.type)) {
+        let ext = /(png|jpg|ico|gif|jpeg|bmp)$/gm.exec(image.type);
+
+        if (!ext) {
+            // Remove the uploaded file
             await fs.remove(path);
+
             return res.status(400).json({
                 error: {
                     code: 400,
@@ -55,7 +59,11 @@ const submitFile = async (req: Request, res: Response) => {
         }
 
         // Generate the Favicons
-        const favicons = new generator(image.path).generate();
+        new generator({
+            sourceImagePath: image.path,
+            sourceImageDir: path,
+            ext: ext[0],
+        }).generate();
 
         // TODO: Save to the database
 
