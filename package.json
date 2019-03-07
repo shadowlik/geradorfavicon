@@ -1,0 +1,26 @@
+{
+  "name": "geradorfavicon",
+  "version": "1.0.0",
+  "description": "Gerador de Favicons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowlik/geradorfavicon.git"
+  },
+  "keywords": [
+    "gerador",
+    "favicon",
+    "nodejs",
+    "express",
+    "javascript"
+  ],
+  "author": "Henrique Marques Fernandes <henrique@marquesfernandes.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadowlik/geradorfavicon/issues"
+  },
+  "homepage": "https://github.com/shadowlik/geradorfavicon#readme"
+}

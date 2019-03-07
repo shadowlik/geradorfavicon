@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  ihub-rest:
+    build: .
+    environment:
+    - NODE_ENV
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+    ports:
+      - "${SERVER_HTTP_PORT}:${SERVER_HTTP_PORT}"
+      - "${PORT_DEBUG}:${PORT_DEBUG}"
+    command: npm run watch
+    networks:
+      - mf-nk
+  # Mongo Database
+  mongo:
+    image: mongo
+    logging:
+      driver: none
+    volumes:
+      - /data/db
+    ports:
+      - 27017:27017
+    networks:
+      - mf-nk
+networks:
+  mf-nk:
+    driver: bridge
