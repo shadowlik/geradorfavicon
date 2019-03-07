@@ -59,15 +59,20 @@ const submitFile = async (req: Request, res: Response) => {
         }
 
         // Generate the Favicons
-        new generator({
+        const favicons = await new generator({
             sourceImagePath: image.path,
             sourceImageDir: path,
             ext: ext[0],
-        }).generate();
+            id,
+        });
+
+        await favicons.createFavicons();
+        await favicons.zipSourceFolder();
+        await favicons.removeSourceFolder();
 
         // TODO: Save to the database
 
-        res.json({fields, files});
+        res.json(id);
     });
 }
 
