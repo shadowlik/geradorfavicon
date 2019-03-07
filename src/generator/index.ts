@@ -3,10 +3,10 @@ import jimp from 'jimp';
 /**
  * Favicons class
  */
-export class Favicons {
+export = class Favicons {
     sourceImagePath: string;
 
-    constructor() {
+    constructor(imagePath: string) {
 
     }
 
@@ -14,4 +14,7 @@ export class Favicons {
 
     }
 
+    generate(): any {
+
+    }
 }

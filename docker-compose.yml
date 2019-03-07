@@ -8,8 +8,7 @@ services:
     - SERVER_PORT
     - PORT_DEBUG
     volumes:
-      - ./dist:/app/dist
-      - ./src:/app/src
+      - ./:/app/
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
       - "${PORT_DEBUG}:${PORT_DEBUG}"
