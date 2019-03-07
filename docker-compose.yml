@@ -5,13 +5,15 @@ services:
     build: .
     environment:
     - NODE_ENV
+    - SERVER_PORT
+    - PORT_DEBUG
     volumes:
       - ./dist:/app/dist
       - ./src:/app/src
     ports:
-      - "${SERVER_HTTP_PORT}:${SERVER_HTTP_PORT}"
+      - "${SERVER_PORT}:${SERVER_PORT}"
       - "${PORT_DEBUG}:${PORT_DEBUG}"
-    command: npm run watch
+    command: npm run docker_dev
     networks:
       - mf-nk
   # Mongo Database

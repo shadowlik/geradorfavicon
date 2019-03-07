@@ -10,6 +10,6 @@ RUN npm i
 
 RUN npm run build
 
-EXPOSE 9890
+EXPOSE 2828
 
 CMD [ "npm", "run", "start" ]
