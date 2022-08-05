@@ -33,7 +33,7 @@
     "formidable": "^1.2.1",
     "fs-extra": "^7.0.1",
     "jimp": "^0.6.0",
-    "mongoose": "^5.4.17",
+    "mongoose": "^5.7.5",
     "uniqid": "^5.0.3"
   },
   "devDependencies": {
